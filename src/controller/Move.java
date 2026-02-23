@@ -1,4 +1,4 @@
-package controller;
+package FreeFight.src.controller;
 
 public class Move {
     int x;

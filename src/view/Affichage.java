@@ -1,8 +1,5 @@
 package view;
 
-import model.Batiment;
-import model.Defense;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -20,12 +17,15 @@ public class Affichage extends JFrame {
   
     private List<Troupe> troupes;
 
+
+
     private Image barbareImg;
     private Image sorcierImg;
     private Image pekkaImg;
   
 
     public Affichage(List<Troupe> troupes) {
+
         // Défenses de test placées sur la map
         defenses.add(new Defense("Canon",        200, 150, 200, 200));
         defenses.add(new Defense("Tour Archer",  100, 220, 500, 280));
@@ -35,13 +35,15 @@ public class Affichage extends JFrame {
         setSize(1280, 720);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        
+        barbareImg = new ImageIcon("res/barbare.png").getImage();
+        sorcierImg = new ImageIcon("res/sorcier.png").getImage();
+        pekkaImg = new ImageIcon("res/pekka.png").getImage();
+
         add(new MapPanel());
         setVisible(true);
         this.troupes = troupes;
         setBackground(new Color(34,139,34)); // vert terrain
-        barbareImg = new ImageIcon("img/barbare.png").getImage();
-        sorcierImg = new ImageIcon("img/sorcier.png").getImage();
-        pekkaImg = new ImageIcon("img/pekka.png").getImage();
     }
 
     // ---------------------------------------------------------------
@@ -233,6 +235,7 @@ public class Affichage extends JFrame {
         int totalWidth = spacing * 2;
         int startX = (getWidth() - totalWidth) / 2;
         int y = getHeight() - 80;     // Affichage en bas de l'écran
+        g.setColor(Color.WHITE);
 
         // Barbare
         g.drawImage(barbareImg, startX, y, avatarSize, avatarSize, this);

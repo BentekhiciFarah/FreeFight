@@ -23,7 +23,7 @@ public class Affichage extends JFrame {
         defenses.add(new Defense("Mortier",      300, 180, 360, 430));
 
         setTitle("FreeFight – Test Portée Défenses");
-        setSize(750, 600);
+        setSize(1280, 720);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         add(new MapPanel());

@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
+import model.*;
+
 
 public class Affichage extends JFrame {
 
@@ -15,8 +17,15 @@ public class Affichage extends JFrame {
     private final Batiment hotelDeVille = new Batiment("Hôtel de Ville", 1500, 375, 290);
     private Point clickPoint = null;
     private final List<Defense> defensesEnPortee = new ArrayList<>();
+  
+    private List<Troupe> troupes;
 
-    public Affichage() {
+    private Image barbareImg;
+    private Image sorcierImg;
+    private Image pekkaImg;
+  
+
+    public Affichage(List<Troupe> troupes) {
         // Défenses de test placées sur la map
         defenses.add(new Defense("Canon",        200, 150, 200, 200));
         defenses.add(new Defense("Tour Archer",  100, 220, 500, 280));
@@ -28,6 +37,12 @@ public class Affichage extends JFrame {
         setLocationRelativeTo(null);
         add(new MapPanel());
         setVisible(true);
+        this.troupes = troupes;
+        setBackground(new Color(34,139,34)); // vert terrain
+
+        barbareImg = new ImageIcon("img/barbare.png").getImage();
+        sorcierImg = new ImageIcon("img/sorcier.png").getImage();
+        pekkaImg = new ImageIcon("img/pekka.png").getImage();
     }
 
     // ---------------------------------------------------------------
@@ -63,6 +78,12 @@ public class Affichage extends JFrame {
             dessinerHotelDeVille(g2);
             dessinerDefenses(g2);
             dessinerResultat(g2);
+            // Dessine la bare en bas de l'écran
+            g.setColor(new Color(50, 50, 50));
+            g.fillRect(0, getHeight() - 100, getWidth(), 100);
+
+            // Dessine les troupes
+            drawAvatars(g);
         }
 
         private void dessinerGrille(Graphics2D g2) {
@@ -206,8 +227,24 @@ public class Affichage extends JFrame {
         }
     }
 
-    // ---------------------------------------------------------------
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(Affichage::new);
+    private void drawAvatars(Graphics g) {
+
+        int avatarSize = 50;         
+        int spacing = 120;
+        int totalWidth = spacing * 2;
+        int startX = (getWidth() - totalWidth) / 2;
+        int y = getHeight() - 80;     // Affichage en bas de l'écran
+
+        // Barbare
+        g.drawImage(barbareImg, startX, y, avatarSize, avatarSize, this);
+        g.drawString("Barbare", startX, y - 5);
+
+        // Sorcier
+        g.drawImage(sorcierImg, startX + spacing, y, avatarSize, avatarSize, this);
+        g.drawString("Sorcier", startX + spacing, y - 5);
+
+        // Pekka
+        g.drawImage(pekkaImg, startX + spacing * 2, y, avatarSize, avatarSize, this);
+        g.drawString("Pekka", startX + spacing * 2, y - 5);
     }
 }

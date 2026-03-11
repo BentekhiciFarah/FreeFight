@@ -1,6 +1,5 @@
 package model;
 
-
 public abstract class Troupe { // car c'est une base commune à toutes les troupes
     protected int x;    // position x de la troupe
     protected int y;    // position y de la troupe

@@ -41,6 +41,4 @@ public abstract class Troupe { // car c'est une base commune à toutes les troup
     public int getHealth() {
         return health;
     }
-
-    
 }

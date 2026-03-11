@@ -39,7 +39,6 @@ public class Affichage extends JFrame {
         setVisible(true);
         this.troupes = troupes;
         setBackground(new Color(34,139,34)); // vert terrain
-
         barbareImg = new ImageIcon("img/barbare.png").getImage();
         sorcierImg = new ImageIcon("img/sorcier.png").getImage();
         pekkaImg = new ImageIcon("img/pekka.png").getImage();

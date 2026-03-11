@@ -1,4 +1,4 @@
-package FreeFight.src.model;
+package model;
 
 public class Troupe {
    

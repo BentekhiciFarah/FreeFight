@@ -1,4 +1,4 @@
-package FreeFight.src.model;
+package model;
 
 public class Defense extends Batiment {
     private int portee;

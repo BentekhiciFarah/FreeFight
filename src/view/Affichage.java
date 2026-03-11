@@ -1,7 +1,7 @@
-package FreeFight.src.view;
+package view;
 
-import FreeFight.src.model.Batiment;
-import FreeFight.src.model.Defense;
+import model.Batiment;
+import model.Defense;
 
 import javax.swing.*;
 import java.awt.*;

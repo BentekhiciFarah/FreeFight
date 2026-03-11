@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package model;
 
 public abstract class Troupe { // car c'est une base commune à toutes les troupes
@@ -44,10 +43,4 @@ public abstract class Troupe { // car c'est une base commune à toutes les troup
     }
 
     
-=======
-public class Troupe {
-   
-
-
->>>>>>> fdf84ae907bfd2a983e45c778e276613e4ac8db0
 }

@@ -271,6 +271,10 @@ public class Affichage extends JFrame {
             g2.drawString(msg, 20, 27);
         }
 
+
+        // Méthode qui retourne la troupe située à la position du clic de la souris.
+        // Parcourir la liste des troupes et vérifier si les coordonnées de la souris
+        // Si une troupe est trouvée, la retourner, sinon retourner null.
         private Troupe getTroupeAtPosition(int mouseX, int mouseY) {
             for (Troupe t : troupes) {
                 int tx = t.getX();
@@ -284,6 +288,9 @@ public class Affichage extends JFrame {
             return null;
         }
 
+        // Méthode qui dessine toutes les troupes sur la carte.
+        // Parcourir la liste des troupes et afficher l'image correspondant au type
+        // de troupe (Barbare, Sorcier, Pekka) à sa position.
         private void dessinerTroupes(Graphics g) {
             for (Troupe t : troupes) {
                 if (t instanceof Barbare) {
@@ -293,7 +300,6 @@ public class Affichage extends JFrame {
                 } else if (t instanceof Pekka) {
                     g.drawImage(pekkaImg, t.getX(), t.getY(), 40, 40, Affichage.this);
                 }
-
                 if (t == troupeSelectionnee) {
                     g.drawRect(t.getX(), t.getY(), 40, 40);
                 }
